@@ -1,0 +1,22 @@
+overwrite: true
+schema: "graphql/schema.graphql"
+documents: "./graphql/**/*.graphql" # my endpoint
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      avoidOptionals: true
+      immutableTypes: true
+      # # path should be relative from dist path
+      # contextType: ../context#Context
+      nonOptionalTypename: true
+      flattenGeneratedTypes: true
+      preResolveTypes: true
+
+      scalars:
+          ID: string
+          Cursor: string
+          ISO8601DateTime: string

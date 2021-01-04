@@ -1,0 +1,18 @@
+{
+  "name": "bringout-frontend",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev-server": "webpack-dev-server",
+    "build": "webpack",
+    "i18n-extract": "babel --config-file ./.babelrc.i18next-extraction 'src/**/*.{ts,tsx}'",
+    "type-check": "tsc --noEmit ",
+    "gen": "graphql-codegen --config codegen.yml",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
+    "lint:css": "stylelint './src/*.ts?'",
+    "styleguide:build": "styleguidist build",
+    "styleguide:server": "styleguidist server",
+    "check-all": "npm run type-check && npm run lint"
+  }
+}
