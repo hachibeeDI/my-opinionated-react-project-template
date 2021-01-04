@@ -3,8 +3,8 @@ import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // TODO: consider more decent path
-import CommonEn from '~/../locales/en/commons.json';
-import CommonJa from '~/../locales/en/commons.json';
+import CommonEn from '~/locales/en/commons.json';
+import CommonJa from '~/locales/en/commons.json';
 
 const defaultLoadedResources = {
   en: {
