@@ -14,5 +14,20 @@
     "styleguide:build": "styleguidist build",
     "styleguide:server": "styleguidist server",
     "check-all": "npm run type-check && npm run lint"
+  },
+  "resolutions": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "dependencies": {
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.4.0",
+    "i18next": "^19.8.4",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "luxon": "^1.25.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.8.5",
+    "styled-system": "^5.1.5"
   }
 }
