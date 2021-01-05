@@ -2,7 +2,7 @@
   "extends": "./.babelrc.base",
   plugins: [
     ["i18next-extract", {
-      outputPath: 'locales/{{locale}}/{{ns}}.json',
+      outputPath: 'src/locales/{{locale}}/{{ns}}.json',
       locales: ['en', 'ja'],
       defaultNS: 'commons',
       discardOldKeys: true,

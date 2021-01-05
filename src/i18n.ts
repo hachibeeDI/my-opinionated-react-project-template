@@ -2,7 +2,6 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-// TODO: consider more decent path
 import CommonEn from '~/locales/en/commons.json';
 import CommonJa from '~/locales/ja/commons.json';
 
@@ -26,7 +25,7 @@ i18n
 
       fallbackLng: 'en',
       debug: process.env.NODE_ENV !== 'production',
-      ns: ['commons'],
+      ns: Array.from(Object.keys(defaultLoadedResources.en)),
       defaultNS: 'commons',
       load: 'languageOnly', // 'all' --> ['en-US', 'en', 'dev'], 'currentOnly' --> 'en-US', 'languageOnly' --> 'en'
       interpolation: {
@@ -43,13 +42,5 @@ i18n
 i18n.on('failedLoading', function (lng, ns, msg) {
   console.log(lng, ns, msg);
 });
-
-export const loadFeatureResource = (feature: string) => {
-  const lang = i18n.language;
-  return import(`~/locales/${lang}/${feature}.json`).then((val) => {
-    i18n.addResourceBundle(lang, feature, val, true, true);
-    return val;
-  });
-};
 
 export default i18n;
