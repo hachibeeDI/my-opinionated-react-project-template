@@ -17,7 +17,7 @@ export default function TProvider(props: {children: ReactChild}) {
   }, []);
   return (
     <ThemeProvider theme={isDarkMode ? theme.dark : theme.light}>
-      <Global styles={globalCSS} />
+      <Global styles={globalCSS as any} />
       {props.children}
     </ThemeProvider>
   );

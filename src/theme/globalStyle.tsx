@@ -1,7 +1,7 @@
-import {css} from '@emotion/core';
+import {css} from '@emotion/react';
 import emotionNormalize from 'emotion-normalize';
 
-import {ProjectTheme} from './theme';
+import {ProjectTheme} from './conf';
 
 // TODO: normalize.css
 export const globalCSS = (theme: ProjectTheme) => css`
