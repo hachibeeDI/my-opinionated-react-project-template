@@ -1,6 +1,6 @@
 overwrite: true
 schema: "graphql/schema.graphql"
-documents: "./graphql/**/*.graphql" # my endpoint
+documents: "./graphql/**/*.graphql"
 generates:
   src/generated/graphql.ts:
     plugins:
@@ -18,5 +18,3 @@ generates:
 
       scalars:
           ID: string
-          Cursor: string
-          ISO8601DateTime: string

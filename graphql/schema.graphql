@@ -1,0 +1,10 @@
+# GraphQL Schema Sample
+type User {
+  id: ID!
+
+  name: String
+}
+
+type Query {
+  users: [User!]
+}
