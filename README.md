@@ -94,6 +94,58 @@ https://www.i18next.com/overview/plugins-and-utils#backends
 
 ### GraphQLのサポート
 
+GraphQL公式の例にのっとり、graphql-codegenを利用したスキーマファーストな開発を行います。
+
+この方式を採用した理由は
+
+0. 公式がGraphQLはGraphQLのエコシステム上で扱うことを推奨している
+1. 依存が少ない
+2. babelやwebpackの設定が肥大しない
+
+などです。
+
+#### スキーマの変更に随従する
+
+`codege.yml` を開きます。
+
+`schema: ` のファイルの中身を書き換えます。  
+Webサーバーから公開している場合はurlも指定できます。詳しくは公式のドキュメントを読みましょう。
+
+
+#### QueryやMutationの追加
+
+`graphql/{queries,mutations}/` 以下にファイルを追加していきましょう。  
+次に
+
+```sh
+$ yarn gen
+```
+
+とします。
+
+すると `src/generated/graphql.ts` が追加されているのがわかるとおもいます。  
+これはクライアントの呼び出しを型安全に行うための補助で、実際にリクエストを送るためには一つ処理を噛ませる必要があります。
+
+何かファイルを用意して以下の処理を加えます。
+
+```typescript
+
+import {GraphQLClient} from 'graphql-request';
+
+import {getSdk} from '~/generated/graphql';
+
+// 使っているpathを指定する。また第二引数で {credentials: 'same-origin' , mode: 'cors' } などのオプションも指定できる。
+const bareClient = new GraphQLClient('/graphql');
+
+export const client = getSdk(bareClient);
+```
+
+これで事前に精製したqueryやmutationに対して型安全なリクエストや返り値の処理が行えるようになりました。
+
+
+#### ファイル配置
+
+`graphql/` 以下に
 
 
 ### React Component Catalog
@@ -114,4 +166,3 @@ run webpack as development
 当プロジェクトではStorybookではなくStyleguidistを利用しています。
 
 詳細は公式ドキュメントで確認のこと。 https://react-styleguidist.js.org
-
