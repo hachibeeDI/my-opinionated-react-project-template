@@ -66,19 +66,6 @@ module.exports = (env, argv) => {
       // host: 'localhost',
       port: 8000,
       historyApiFallback: true,
-      proxy: {
-        '/graphql': {
-          target: 'http://localhost:3000/web/',
-        },
-
-        // しょうもなRails
-        '/sign_in': {
-          target: 'http://localhost:3000/users/',
-        },
-        '/users': {
-          target: 'http://localhost:3000/',
-        },
-      },
     },
   };
 };
